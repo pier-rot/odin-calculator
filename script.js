@@ -15,3 +15,6 @@ function divide(n1,n2) {
     // 0 division return 'Infinity'
     return n1/n2;
 }
+
+// Inputs
+let inputNumber1, inputNumber2, inputOperator;
