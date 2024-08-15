@@ -5,8 +5,11 @@
     --color-4 : #4a5c6a;
     --color-5 : #9ba8ab;
     --color-6 : #CCD0CF;
+    --color-7 : #aa4900;
+    --color-8 : #450b02;
 }
 
+/* Body */
 body {
     display: flex;
     justify-content: center;
@@ -15,4 +18,15 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
+    color: var(--color-6);
+}
+
+/* Calculator container */
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    border: var(--color-5) solid 2px;
+    background-color: #11212d;
 }
