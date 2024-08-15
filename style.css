@@ -31,7 +31,7 @@ body {
     background-color: var(--color-2);
     width: 300px;
     height: 400px;
-    padding: 8px;
+    padding: 6px;
 }
 
 /* Row */
@@ -50,13 +50,13 @@ button {
 
 /* Border radius */
 body * {
-    border-radius: 8px;
+    border-radius: 16px;
 }
 
 /* Button & Display color */
 button, #display {
     background-color: var(--color-3);
     border: var(--color-5) solid 2px;
-    margin: 4px;
+    margin: 3px;
     /* text-align: center; */
 }
