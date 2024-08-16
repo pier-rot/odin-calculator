@@ -1,19 +1,19 @@
 // Basic operation functions
 function add(n1, n2) {
-	return n1 + n2;
+	return (+n1) + (+n2);
 }
 
 function subtract(n1, n2) {
-	return n1 - n2;
+	return (+n1) - (+n2);
 }
 
 function multiply(n1, n2) {
-	return n1 * n2;
+	return (+n1) * (+n2);
 }
 
 function divide(n1, n2) {
 	// 0 division return 'Infinity'
-	return n1 / n2;
+	return (+n1) / (+n2);
 }
 
 // Operate function
@@ -42,7 +42,20 @@ function updateDisplayResult (){
 }
 
 function updateDisplayOperator (){
-	operatorNode.innerText = inputOperator;
+	let inputOperatorSymbol;
+	if (inputOperator == add) {
+		inputOperatorSymbol = "+";
+	} else if (inputOperator == subtract) {
+		inputOperatorSymbol = "-";
+	} else if (inputOperator == divide) {
+		inputOperatorSymbol = "÷";
+	} else if (inputOperator == multiply) {
+		inputOperatorSymbol = "·";
+	} else {
+		inputOperatorSymbol = "";
+	}
+
+	operatorNode.innerText = inputOperatorSymbol;
 }
 
 
@@ -54,6 +67,20 @@ function isNull(element, strict=true) {
 		return (element === null);
 	} else {
 		return (element == null);
+	}
+}
+
+function getFuncFromOperation(operation) {
+	if (operation == "add") {
+		return add;
+	} else if (operation == "subtract") {
+		return subtract;
+	} else if (operation == "divide") {
+		return divide;
+	} else if (operation == "multiply") {
+		return multiply;
+	} else {
+		return () => {};
 	}
 }
 
@@ -132,7 +159,42 @@ function handleSpecialInput(event) {
 }
 
 function handleOperatorInput(event) {
+	const operation = event.currentTarget.getAttribute("id");
+	const operationFunc = getFuncFromOperation(operation);
+	console.log(operationFunc);
 	
+	if (!isNull(inputNumber1)) {
+		if (isNull(inputOperator)) {
+			inputOperator = operationFunc;
+		} else if (operationFunc == subtract) {
+			if (inputOperator == add) {
+				inputOperator = subtract;
+			} else if (inputOperator == subtract) {
+				inputOperator == add;
+			} else {
+				inputNumber1 = `${0- (+inputNumber1)}`;
+			}
+		} else {
+			if (isNull(inputNumber2)) {
+				inputOperator = operationFunc;
+			} else {
+				outputResult = operate(inputNumber1,inputNumber2,inputOperator);
+				inputNumber1 = outputResult;
+				inputNumber2 = null;
+				inputOperator = operationFunc;
+			}
+		}
+	} else {
+		if (isNull(outputResult)) {
+			
+		} else {
+			inputNumber1 = outputResult;
+			outputResult = null;
+			inputOperator = operationFunc;
+		}
+	}
+
+
 	updateDisplay();
 }
 
