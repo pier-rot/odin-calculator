@@ -67,7 +67,7 @@ button, #display {
     align-items: center;
 }
 
-#operation , #equal-sign, #result {
+#number1, #number2, #operator , #equal-sign, #result {
     text-align: center;
     flex: 1;
 }

@@ -23,3 +23,24 @@ let inputNumber1, inputNumber2, inputOperator;
 function operate(n1, n2, operator) {
 	return operator(n1,n2);
 }
+
+// Display function to update the content of the calculator
+function updateDisplay() {
+
+}
+
+function updateDisplayNumber1 (){
+
+}
+
+function updateDisplayNumber2 (){
+
+}
+
+function updateDisplayResult (){
+
+}
+
+function updateDisplayOperator (){
+
+}
