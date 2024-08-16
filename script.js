@@ -16,9 +16,6 @@ function divide(n1, n2) {
 	return n1 / n2;
 }
 
-// Inputs & outputs
-let inputNumber1, inputNumber2, inputOperator, inputSpecial, outputResult;
-
 // Operate function
 function operate(n1, n2, operator) {
 	return operator(n1,n2);
@@ -26,24 +23,28 @@ function operate(n1, n2, operator) {
 
 // Display function to update the content of the calculator
 function updateDisplay() {
-
+	updateDisplayNumber1();
+	updateDisplayNumber2();
+	updateDisplayOperator();
+	updateDisplayResult();
 }
 
 function updateDisplayNumber1 (){
-
+	number1Node.innerText = inputNumber1;
 }
 
 function updateDisplayNumber2 (){
-
+	number2Node.innerText = inputNumber2;
 }
 
 function updateDisplayResult (){
-
+	resultNode.innerText = outputResult;
 }
 
 function updateDisplayOperator (){
-
+	operatorNode.innerText = inputOperator;
 }
+
 
 // Helper functions
 
@@ -76,3 +77,10 @@ function selectNodeAll(nodeHTML) {
 
 // NodeList of all the buttons
 const buttons = selectNodeAll("button");
+
+// Global variables
+let inputNumber1 = null,
+inputNumber2 = null,
+inputOperator = null,
+inputSpecial = null,
+outputResult = null;
