@@ -16,8 +16,8 @@ function divide(n1, n2) {
 	return n1 / n2;
 }
 
-// Inputs
-let inputNumber1, inputNumber2, inputOperator;
+// Inputs & outputs
+let inputNumber1, inputNumber2, inputOperator, inputSpecial, outputResult;
 
 // Operate function
 function operate(n1, n2, operator) {
@@ -55,3 +55,15 @@ function isNull(element, strict=true) {
 		return (element == null);
 	}
 }
+
+// HTML Node selection
+
+function selectNode(nodeHTML) {
+	return document.querySelector(nodeHTML);
+}
+
+const number1Node = selectNode("#number1"),
+	number2Node = selectNode("#number2"),
+	operatorNode = selectNode("#operator"),
+	equalSignNode = selectNode("#equal-sign"),
+	resultNode = selectNode("#result");	
