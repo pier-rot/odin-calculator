@@ -87,7 +87,22 @@ outputResult = null;
 
 // Event Handlers
 function handleDigitInput(event) {
-	console.log(`I am id: ${event.currentTarget.getAttribute("id")}.`)
+	const digit = event.currentTarget.innerText;
+	console.log(digit);
+	if (isNull(inputOperator)) {
+		if (isNull(inputNumber1)) {
+			inputNumber1 = digit;
+			// outputResult = null;
+		} else {
+			inputNumber1 += digit;
+		}
+	} else {
+		if (isNull(inputNumber2)) {
+			inputNumber2 = digit;
+		} else {
+			inputNumber2 += digit;
+		}
+	}
 
 	updateDisplay();
 }
