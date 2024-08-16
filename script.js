@@ -21,5 +21,5 @@ let inputNumber1, inputNumber2, inputOperator;
 
 // Operate function
 function operate(n1, n2, operator) {
-	operator(n1,n2);
+	return operator(n1,n2);
 }
