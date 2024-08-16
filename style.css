@@ -48,6 +48,10 @@ button {
     color: inherit;
 }
 
+button:hover {
+    background-color: var(--color-2);
+}
+
 /* Border radius */
 body * {
     border-radius: 16px;
