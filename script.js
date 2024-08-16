@@ -44,3 +44,14 @@ function updateDisplayResult (){
 function updateDisplayOperator (){
 
 }
+
+// Helper functions
+
+// Check whether element is null with strict equality
+function isNull(element, strict=true) {
+	if (strict) {
+		return (element === null);
+	} else {
+		return (element == null);
+	}
+}
