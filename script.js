@@ -76,7 +76,7 @@ function selectNodeAll(nodeHTML) {
 }
 
 // NodeList of all the buttons
-const buttons = selectNodeAll("button");
+const buttons = Array.from(selectNodeAll("button"));
 
 // Global variables
 let inputNumber1 = null,
@@ -84,3 +84,52 @@ inputNumber2 = null,
 inputOperator = null,
 inputSpecial = null,
 outputResult = null;
+
+// Event Handlers
+function handleDigitInput(event) {
+	console.log(`I am id: ${event.currentTarget.getAttribute("id")}.`)
+
+	updateDisplay();
+}
+
+function handleSpecialInput(event) {
+	const eventTartgetId = event.currentTarget.getAttribute("id");
+	if (eventTartgetId == "clear") {
+		inputNumber1 = null,
+		inputNumber2 = null,
+		inputOperator = null,
+		inputSpecial = null,
+		outputResult = null;
+	} else if (eventTartgetId == "equal"){
+		if (isNull(inputNumber1) && (isNull(inputNumber2) || isNull(inputOperator))) {
+			outputResult = null;
+		} else if (!isNull(inputNumber1) && isNull(inputNumber2)) {
+			outputResult = inputNumber1;
+		} else {
+			outputResult = operate(inputNumber1,inputNumber2,inputOperator);
+			inputNumber1 = null;
+			inputNumber2 = null;
+			inputOperator = null;
+		}
+	}
+
+	updateDisplay();
+}
+
+function handleOperatorInput(event) {
+	
+	updateDisplay();
+}
+
+// Add listeners to buttons
+for (let i = 0; i < buttons.length; i++){
+	if (buttons[i].matches(".digit")) {
+		buttons[i].addEventListener("click", handleDigitInput);
+
+	} else if (buttons[i].matches(".operator")) {
+		buttons[i].addEventListener("click", handleOperatorInput);
+		
+	} else if (buttons[i].matches(".special")) {
+		buttons[i].addEventListener("click", handleSpecialInput);
+	}
+}
