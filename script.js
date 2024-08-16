@@ -58,6 +58,7 @@ function isNull(element, strict=true) {
 
 // HTML Node selection
 
+// Select one node
 function selectNode(nodeHTML) {
 	return document.querySelector(nodeHTML);
 }
@@ -66,4 +67,12 @@ const number1Node = selectNode("#number1"),
 	number2Node = selectNode("#number2"),
 	operatorNode = selectNode("#operator"),
 	equalSignNode = selectNode("#equal-sign"),
-	resultNode = selectNode("#result");	
+	resultNode = selectNode("#result");
+
+// Select all nodes of type 'nodeHTML'
+function selectNodeAll(nodeHTML) {
+	return document.querySelectorAll(nodeHTML);
+}
+
+// NodeList of all the buttons
+const buttons = selectNodeAll("button");
